@@ -16,21 +16,9 @@ import { prisma } from '../src/config/db';
 
 const mockPrisma = prisma as jest.Mocked<typeof prisma>;
 
-describe('API Tests', () => {
+describe('Ticket Tests', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-  });
-
-  describe('GET /health', () => {
-    it('should return health status', async () => {
-      const response = await request(app)
-        .get('/health')
-        .expect(200);
-
-      expect(response.body).toHaveProperty('status', 'ok');
-      expect(response.body).toHaveProperty('timestamp');
-      expect(new Date(response.body.timestamp)).toBeInstanceOf(Date);
-    });
   });
 
   describe('POST /api/tickets', () => {

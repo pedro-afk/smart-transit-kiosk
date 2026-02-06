@@ -51,5 +51,6 @@ model Purchase {
   buyerPhone     String?
 
   paymentMethod  PaymentMethod
+  amount         Float
   createdAt      DateTime       @default(now())
 }

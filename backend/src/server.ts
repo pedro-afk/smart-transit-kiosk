@@ -6,7 +6,6 @@ prisma.$connect().then(() => {
     console.log('Database connection established');
 }).catch((error) => {
     console.error('Database connection error:', error);
-    // process.exit(1);
 });
 
 app.listen(env.PORT, () => {
