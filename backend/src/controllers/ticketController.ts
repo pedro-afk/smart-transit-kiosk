@@ -10,12 +10,11 @@ export const createTicket = async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'Invalid ticket type' });
     }
 
-    // Calculate validUntil based on type
     const validUntil = new Date();
     if (type === TicketType.SINGLE) {
-      validUntil.setHours(validUntil.getHours() + 2); // Valid for 2 hours
+      validUntil.setHours(validUntil.getHours() + 2);
     } else if (type === TicketType.DAY_PASS) {
-      validUntil.setDate(validUntil.getDate() + 1); // Valid for 1 day
+      validUntil.setDate(validUntil.getDate() + 1);
     }
 
     // Generate QR code (simple for now)

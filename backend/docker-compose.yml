@@ -5,9 +5,10 @@ services:
       - "${PORT:-3333}:3333"
     env_file:
       - .env
-    command: sh -c "npx prisma migrate deploy && node dist/server.js"
+    command: sh -c "npx prisma db push && node dist/server.js"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:15
@@ -21,6 +22,11 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
 volumes:
   postgres_data:
