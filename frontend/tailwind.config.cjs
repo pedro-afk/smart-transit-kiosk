@@ -10,8 +10,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        display: ['"Merriweather"', 'serif'],
-        sans: ['"Manrope"', 'system-ui', 'sans-serif']
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif']
       }
     }
   },

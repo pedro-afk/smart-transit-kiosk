@@ -89,3 +89,24 @@ export const getPurchase = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+export const getPurchasesByEmail = async (req: Request, res: Response) => {
+  try {
+    const { email } = req.query;
+
+    if (!email || typeof email !== 'string') {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+
+    const purchases = await prisma.purchase.findMany({
+      where: { buyerEmail: { equals: email, mode: 'insensitive' } },
+      include: { ticket: true },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    res.json(purchases);
+  } catch (error) {
+    console.error('Error getting purchases by email:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
