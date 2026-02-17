@@ -5,7 +5,7 @@ import 'package:mobile/models/ticket_purchase.dart';
 
 class TicketRepository {
   // Expects a backend endpoint like GET /api/purchases?email=someone@domain.com
-  TicketRepository({this.baseUrl = 'http://192.168.1.15:3333'});
+  TicketRepository({this.baseUrl = 'http://localhost:3333'});
 
   final String baseUrl;
 

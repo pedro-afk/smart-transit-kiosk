@@ -57,6 +57,28 @@ By default, the mobile app calls the backend at `http://10.0.2.2:3333` (Android 
 - Mobile login is currently mocked in `mobile/lib/repository/login_repository.dart` and should be replaced with real auth endpoints.
 - Ticket QR codes are generated server-side and displayed in the mobile app.
 
+## Screenshots (Flow)
+
+### Web Kiosk
+
+1. Generate ticket form  
+   ![Generate ticket form](images/form_generate_ticket.png)
+2. Payment flow  
+   ![Payment flow](images/payment_flow_ticket.png)
+3. Confirmation after payment  
+   ![After payment](images/form_after_ticket_payment.png)
+
+### Mobile App
+
+1. Login screen  
+   ![Login screen](images/app_login_screen.png)
+2. Email confirmation code  
+   ![Email confirmation code](images/app_login_email_confirmation_code.png)
+3. Ticket list (home)  
+   ![Ticket list](images/app_home_ticket_listing.png)
+4. Ticket QR code  
+   ![Ticket QR code](images/app_ticket_qrcode_bottomsheet.png)
+
 ## Folder Structure
 
 - `backend/` - API server
